@@ -27,13 +27,15 @@ print(english_words)
 
 
 dic = {}
+seen = set()
 for word in english_words:
-    if len(word) <= 9:
+    if len(word) <= 9 and not word in seen:
         key = ''.join(sorted(word))
         if key in dic:
             dic[key].append(word)
         else:
             dic[key] = [word]
+        seen.add(word)
 print(dic)
 # Saving to a JSON file
 with open("data.json", "w") as file:
