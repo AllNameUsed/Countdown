@@ -46,7 +46,6 @@ def generate_letters(selections):
     return letters_values
 
 def find_top_words(letters):
-    # Placeholder for finding the longest word from letters
     ans = []
     seen = set()
     for i in range(len(letters),0, -1):
@@ -57,6 +56,9 @@ def find_top_words(letters):
                 seen.add(key)
                 for word in DATA[key]:
                     ans.append(word.upper())
+                if len(ans) == 5:
+                    return ans
+                    
     return ans[:5]
 
 
